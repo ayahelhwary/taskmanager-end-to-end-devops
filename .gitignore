@@ -1,0 +1,27 @@
+# .NET build outputs
+bin/
+obj/
+out/
+
+# Rider / VS / VS Code
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# macOS
+.DS_Store
+__MACOSX/
+
+# Environment / secrets
+*.env
+appsettings.Production.json
+appsettings.Local.json
+
+# Test results
+TestResults/
+*.trx
+
+# Logs
+*.log
