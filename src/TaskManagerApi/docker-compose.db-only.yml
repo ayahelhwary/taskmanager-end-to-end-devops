@@ -1,0 +1,20 @@
+# ده مؤقت بس لمرحلة تطوير الـAPI - بيشغل PostgreSQL محليًا عشان تختبري عليه
+# في المرحلة الجاية (Dockerize) هنعمل docker-compose كامل فيه الـAPI نفسه كمان
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: taskmanager-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: taskmanager
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - taskmanager-db-data:/var/lib/postgresql/data
+
+volumes:
+  taskmanager-db-data:
