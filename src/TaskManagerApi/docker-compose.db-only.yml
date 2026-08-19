@@ -1,5 +1,3 @@
-# ده مؤقت بس لمرحلة تطوير الـAPI - بيشغل PostgreSQL محليًا عشان تختبري عليه
-# في المرحلة الجاية (Dockerize) هنعمل docker-compose كامل فيه الـAPI نفسه كمان
 version: "3.9"
 
 services:
