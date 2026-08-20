@@ -15,20 +15,20 @@ Many applications take a long time to deploy and require significant manual inte
 ## 🏗️ Architecture
 
 ```
-┌─────────────┐      ┌──────────────┐      ┌─────────────────┐
-│  .NET API   │ ───▶ │  Docker      │ ───▶ │  PostgreSQL      │
-│  (Controllers│      │  Multi-stage │      │  (separate       │
-│  + EF Core)  │      │  build       │      │  container)      │
-└─────────────┘      └──────────────┘      └─────────────────┘
+┌──────────────┐      ┌──────────────┐      ┌───────────────┐
+│   .NET API   │ ───▶ │    Docker    │ ───▶ │   PostgreSQL  │
+│ (Controllers │      │  Multi-stage │      │   (separate   │
+│  + EF Core)  │      │    build     │      │   container)  │
+└──────────────┘      └──────────────┘      └───────────────┘
        │                     │
        │              Alpine-based
        │              (55MB image)
        ▼
-┌─────────────┐
+┌──────────────┐
 │ Health Checks│
 │ /health/live │  ← independent of the database
 │ /health/ready│  ← verifies the database connection
-└─────────────┘
+└──────────────┘
 ```
 
 ---
