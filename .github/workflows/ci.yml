@@ -27,3 +27,6 @@ jobs:
 
       - name: Run unit tests
         run: dotnet test --no-build --verbosity normal
+      
+      - name: Build Docker image
+        run: docker build -t taskmanager-api:${{ github.sha }} .
